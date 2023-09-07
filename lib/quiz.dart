@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_game/questions_screen.dart';
+import 'package:quiz_game/results_screen.dart';
 import 'package:quiz_game/start_screen.dart';
 import 'package:quiz_game/data/questions.dart';
+
 class Quiz extends StatefulWidget{
   const Quiz({super.key});
   @override
@@ -19,12 +21,15 @@ class _QuizState extends State<Quiz>{
 
     if(selectedAnswers.length == questions.length){
       setState(() {
-        selectedAnswers =[];
-        activeScreen =StartScreen(switchScreen);
+
+        activeScreen =  ResultsScreen(
+            chosenAnswers: selectedAnswers
+        );
 
       });
     }
   }
+
 
 
   Widget? activeScreen;
